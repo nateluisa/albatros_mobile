@@ -155,32 +155,32 @@ class LoginTexts extends ChangeNotifier {
   String get chooseLanguageTitle =>
       _chooseLanguageTitle ?? _defaultChooseLanguageTitle;
 
-  static const String _defaultWelcome = 'Bem vindo(a)!';
+  static const String _defaultWelcome = '';
   static const String _defaultWelcomeDescription =
       '';
   static const String _defaultSignUp = 'Solicitar';
   static const String _defaultSignUpFormTitle = 'Solicite a criação de um novo';
   static const String _defaultSignUpUseEmail =
-      'or use your email for registration:';
+      'ou use seu email para se registrar';
   static const String _defaultnotHaveAnAccount = "Não possui usuário?";
   static const String _defaultWelcomeBack = 'Bem vindo(a)!';
   static const String _defaultWelcomeBackDescription =
       "";
   static const String _defaultLogin = 'Login';
-  static const String _defaultLoginFormTitle = 'Login to Account';
-  static const String _defaultLoginUseEmail = 'or use your email account:';
-  static const String _defaultForgotPassword = 'Forgot Password?';
-  static const String _defaultAlreadyHaveAnAccount = 'Already have an account?';
+  static const String _defaultLoginFormTitle = 'Login';
+  static const String _defaultLoginUseEmail = 'ou use sua conta de email';
+  static const String _defaultForgotPassword = 'Esqueceu a senha?';
+  static const String _defaultAlreadyHaveAnAccount = 'Ja possui usuário?';
 
   static const String _defaultNameHint = 'Nome';
   static const String _defaultEmailHint = 'Usuário';
   static const String _defaultPasswordHint = '';
-  static const String _defaultConfirmPasswordHint = 'Confirm Password';
+  static const String _defaultConfirmPasswordHint = 'Confirme a senha';
 
   static const String _defaultPasswordMatchingError =
-      'The passwords you entered do not match, check again.';
+      'As senhas nao conferem, tente novamente.';
   static const String _defaultDialogButtonText = 'OK';
-  static const String _defaultChooseLanguageTitle = 'Choose your language';
+  static const String _defaultChooseLanguageTitle = 'Escolha seu idioma';
 
   final String? _welcome;
 
