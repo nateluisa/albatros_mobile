@@ -93,7 +93,7 @@ class InputDeco {
   /// Default function returns [OutlineInputBorder] with some common values.
   /// Takes [color] and [widthFactor] as parameters to specialize each border.
   OutlineInputBorder _getOutlineBorder(Color? color, bool isLandscape,
-          {double widthFactor = .50}) =>
+          {double widthFactor = .52}) =>
       OutlineInputBorder(
         borderRadius: context.read<LoginTheme>().formFieldBorderRadius ??
             const BorderRadius.all(Radius.circular(10)),
