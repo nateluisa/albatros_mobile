@@ -43,7 +43,8 @@ class InputDeco {
           Colors.white54,
       hoverColor: loginTheme.formFieldHoverColor ??
           Theme.of(context).primaryColorLight.withOpacity(.1),
-      hintText: hintText,
+      //hintText: hintText,
+      label: Text(hintText!),
       hintStyle:
           TextStyles(context).hintTextStyle().merge(loginTheme.hintTextStyle),
       labelText: loginTheme.isLandscape
@@ -59,7 +60,7 @@ class InputDeco {
       enabledBorder: loginTheme.enabledBorder ??
           _getOutlineBorder(
               loginTheme.enabledBorderColor, loginTheme.isLandscape,
-              widthFactor: .4),
+              widthFactor: .2),
       focusedBorder: loginTheme.focusedBorder ??
           _getOutlineBorder(
               loginTheme.focusedBorderColor, loginTheme.isLandscape),
@@ -69,7 +70,7 @@ class InputDeco {
       errorBorder: loginTheme.errorBorder ??
           _getOutlineBorder(
               loginTheme.errorBorderColor ?? Colors.red, loginTheme.isLandscape,
-              widthFactor: .4),
+              widthFactor: .2),
       prefixIcon:
           prefixWidget ?? getPrefixIcon(prefixIcon, loginTheme.isLandscape),
       filled: true,

@@ -155,7 +155,7 @@ class LoginTexts extends ChangeNotifier {
   String get chooseLanguageTitle =>
       _chooseLanguageTitle ?? _defaultChooseLanguageTitle;
 
-  static const String _defaultWelcome = '';
+  static const String _defaultWelcome = 'Bem vindo';
   static const String _defaultWelcomeDescription =
       '';
   static const String _defaultSignUp = 'Solicitar';
@@ -174,7 +174,7 @@ class LoginTexts extends ChangeNotifier {
 
   static const String _defaultNameHint = 'Nome';
   static const String _defaultEmailHint = 'Usuário';
-  static const String _defaultPasswordHint = '';
+  static const String _defaultPasswordHint = 'Senha';
   static const String _defaultConfirmPasswordHint = 'Confirme a senha';
 
   static const String _defaultPasswordMatchingError =
