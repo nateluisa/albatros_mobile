@@ -188,7 +188,7 @@ class _AnimatedLoginState extends State<AnimatedLogin> {
     final LoginTheme loginTheme = LoginTheme(
       desktopTheme: widget.loginDesktopTheme,
       mobileTheme: widget.loginMobileTheme,
-    )..backgroundColor ??= Theme.of(context).primaryColor.withOpacity(.8);
+    )..backgroundColor ??= Color.fromARGB(255, 106, 16, 47);
     final LoginTexts loginTexts = widget.loginTexts ?? LoginTexts()
       ..language = widget.selectedLanguage;
     return MultiProvider(
@@ -345,7 +345,7 @@ class __ViewState extends State<_View> with SingleTickerProviderStateMixin {
 
   Widget get _webView => Stack(
         children: <Widget>[
-          Container(color: loginTheme.backgroundColor),
+          Container(color: Color.fromARGB(255, 106, 16, 48)),
           _animatedWebWelcome,
           _WebForm(animationController: animationController),
           if (widget.changeLanguageCallback != null &&
