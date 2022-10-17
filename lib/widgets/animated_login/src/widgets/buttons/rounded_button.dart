@@ -114,25 +114,26 @@ class _RoundedButtonState extends State<RoundedButton> {
   /// Calls the rounded style from [ButtonStyles] class with custom parameters.
   ButtonStyle _defaultButtonStyle(BuildContext context, bool isLandscape) =>
       ButtonStyles(context).roundedStyle(
-        borderWidth: widget.borderWidth,
-        backgroundColor: widget.backgroundColor,
-        borderColor: widget.borderColor ?? (isLandscape ? null : Colors.white),
-        borderRadius: widget.borderRadius,
+        elevation: 4,
+        borderWidth: 0,
+        backgroundColor: Colors.white,
+        borderColor: Color.fromARGB(255, 76, 36, 52),
+        borderRadius: BorderRadius.all(Radius.circular(10.0)),
         size: Size(_buttonWidth, _buttonHeight),
         textStyle: TextStyles(context).bodyStyle(
-          color: isLandscape ? Colors.white : Theme.of(context).primaryColor,
+          color: Colors.black,
           fontWeight: FontWeight.w500,
         ),
         foregroundColor:
-            isLandscape ? Colors.white : Theme.of(context).primaryColor,
+            isLandscape ? Colors.black : Theme.of(context).shadowColor,
       );
 
   double get _buttonWidth => _loading && loginTheme.showLoadingButton
       ? _loadingSize(context) * 3.3
       : widget.width ??
-          DynamicSize(context).width * (loginTheme.isLandscape ? 14 : 38);
+          DynamicSize(context).width * (loginTheme.isLandscape ? 14 : 48);
 
   double get _buttonHeight =>
       widget.height ??
-      DynamicSize(context).height * (loginTheme.isLandscape ? 9 : 7.3);
+      DynamicSize(context).height * (loginTheme.isLandscape ? 9 : 6.3);
 }

@@ -103,7 +103,7 @@ class InputDeco {
           color: color ??
               (isLandscape
                   ? Theme.of(context).primaryColorLight
-                  : Colors.white),
+                  : Color.fromARGB(255, 204, 172, 188)),
         ),
       );
 }
