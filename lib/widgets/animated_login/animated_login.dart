@@ -188,7 +188,7 @@ class _AnimatedLoginState extends State<AnimatedLogin> {
     final LoginTheme loginTheme = LoginTheme(
       desktopTheme: widget.loginDesktopTheme,
       mobileTheme: widget.loginMobileTheme,
-    )..backgroundColor ??= Color.fromARGB(255, 106, 16, 48);
+    )..backgroundColor ??= Theme.of(context).primaryColor.withOpacity(.8);
     final LoginTexts loginTexts = widget.loginTexts ?? LoginTexts()
       ..language = widget.selectedLanguage;
     return MultiProvider(
@@ -345,17 +345,7 @@ class __ViewState extends State<_View> with SingleTickerProviderStateMixin {
 
   Widget get _webView => Stack(
         children: <Widget>[
-          Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors: [
-                    Colors.white,
-                    Color.fromARGB(255, 106, 16, 48),
-                  ],
-                )),
-          ),
+          Container(color: loginTheme.backgroundColor),
           _animatedWebWelcome,
           _WebForm(animationController: animationController),
           if (widget.changeLanguageCallback != null &&
@@ -546,6 +536,8 @@ class __ViewState extends State<_View> with SingleTickerProviderStateMixin {
   }
 
   void _initializeAnimations() {
+    /// Initializes the transition animation from 0 to form part's width ratio
+    /// with custom animation curve and animation controller.
     welcomeTransitionAnimation = _isLandscape
         ? Tween<double>(begin: 0, end: loginTheme.formWidthRatio).animate(
             CurvedAnimation(
@@ -578,6 +570,8 @@ class __ViewState extends State<_View> with SingleTickerProviderStateMixin {
       }
     });
 
+    /// Initializes the transition animation from welcome part's width ratio
+    /// to 0 with custom animation curve and animation controller.
     transitionAnimation = _isLandscape
         ? Tween<double>(begin: 100 - loginTheme.formWidthRatio, end: 0).animate(
             CurvedAnimation(

@@ -83,7 +83,6 @@ flutter:
     - assets/images/logo.png
     - assets/images/initiallogo.png
     - assets/images/userlogo.png
-    - assets/images/logoAlbatros.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

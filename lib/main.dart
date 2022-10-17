@@ -1,3 +1,4 @@
+import 'package:albatros_mobile/pages/pedidos.dart';
 import 'package:albatros_mobile/widgets/animated_login/animated_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -34,14 +35,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Nunito',
       ),
       home: AnimatedLogin(
-        logo: Hero(
-          tag: 'hero',
-          child: CircleAvatar(
-            backgroundColor: Colors.transparent,
-            //radius: 150,
-            child: Image.asset('assets/images/logo.png'),
-          ),
-        ),
+        logo: Image.asset('assets/images/logo.png'),
       ),
       routes: routes,
     );
