@@ -327,7 +327,7 @@ class _FormState extends State<_Form> {
       CustomTextFormField(
         controller: auth.emailController,
         hintText: loginTexts.emailHint,
-        prefixIcon: Icons.email_outlined,
+        prefixIcon: Icons.account_circle_sharp,
         prefixWidget: loginTheme.emailIcon,
         validator: auth.emailValidator,
         textInputAction: TextInputAction.next,

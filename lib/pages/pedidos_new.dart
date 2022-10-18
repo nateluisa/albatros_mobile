@@ -157,6 +157,7 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
                             const MyDatePicker(
                                 dateLabelText: 'Data do pedido',
                                 readOnly: false),
+
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: ElevatedButton(
@@ -171,9 +172,15 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
                                               onCancel: () {
                                                 Navigator.pop(context);
                                               },
-                                              content: Text('Teste de subtitulo ou conteudo de dialog'),
-                                              title: Text('Teste de title de dialogo'),
-                                              icon: const Icon(Icons.warning_rounded, size: 45, color: Colors.yellow,));
+                                              content: Text(
+                                                  'Teste de subtitulo ou conteudo de dialog'),
+                                              title: Text(
+                                                  'Teste de title de dialogo'),
+                                              icon: const Icon(
+                                                Icons.warning_rounded,
+                                                size: 45,
+                                                color: Colors.yellow,
+                                              ));
                                         });
                                   },
                                   child: const Text('Dialog')),

@@ -49,7 +49,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   dotted_border: ^2.0.0+2
-  animated_background: ^1.0.5
 
 
   # The following adds the Cupertino Icons font to your application.

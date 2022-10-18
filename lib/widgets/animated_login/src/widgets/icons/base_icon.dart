@@ -37,7 +37,7 @@ class BaseIcon extends StatelessWidget {
           size: sizeFactor != null
               ? (dynamicSize.responsiveSize * sizeFactor!)
               : null,
-          color: color,
+          color: Colors.black,
         ),
       ),
     );

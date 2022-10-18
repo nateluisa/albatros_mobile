@@ -24,7 +24,7 @@ class Validators {
     errorMessage = _runValidations(email);
     if (errorMessage != null) return errorMessage;
     final bool isValid = RegExp(_emailRegex).hasMatch(email!);
-    if (!isValid) return 'Insira um email válido';
+    if (!isValid) return 'Insira os dados corretamente';
     return null;
   }
 
@@ -43,7 +43,7 @@ class Validators {
     errorMessage = _runValidations(name);
     if (errorMessage == null) {
       final bool isValid = RegExp(_nameRegex).hasMatch(name!);
-      if (!isValid) errorMessage = 'Insira um nome válido';
+      if (!isValid) errorMessage = 'Informe os dados corretamente!';
     }
     return errorMessage;
   }
@@ -67,7 +67,7 @@ class Validators {
   /// Checks whether the given [text] is longer than or equal to the [length].
   static String? _lengthCheck(String? text, int length) {
     final String lengthError =
-        'Informe os dados';
+        'Informe os dados corretamente!';
        // 'Precisa possuir mais de $length caracteres';
     if (text == null || text.length < length) return lengthError;
     return null;
