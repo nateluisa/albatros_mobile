@@ -29,7 +29,7 @@ class _SincronizarState extends State<Sincronizar> {
               end: Alignment.bottomLeft,
               colors: [
                 Colors.white,
-                Color.fromARGB(255, 106, 16, 48),
+                Color.fromARGB(255, 76, 36, 48),
               ],
             )),
         child: ListView(

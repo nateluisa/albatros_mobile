@@ -1,3 +1,4 @@
+import 'package:albatros_mobile/widgets/animated_login/animated_login.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/sincronizar.dart';
@@ -6,83 +7,79 @@ class MyDrawer extends StatelessWidget {
   const MyDrawer({
     Key? key,
     required this.child,
+    this.accountEmail,
+    this.accountName,
   }) : super(key: key);
 
   final Widget child;
+  final Widget? accountEmail;
+  final Widget? accountName;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-            Colors.white,
-            Color.fromARGB(255, 106, 16, 48),
-          ],
-        )),
-      ),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 106, 16, 48),
+        backgroundColor: Color.fromARGB(255, 106, 16, 48),
       ),
       drawer: Drawer(
         child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: const BoxDecoration(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: accountName,
+              accountEmail: accountEmail,
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage("assets/images/logoAlbatrosFill.png"),
+              ),
+              decoration: BoxDecoration(
                 color: Color.fromARGB(255, 106, 16, 48),
-              ), child: child,
+
+              ),
+              otherAccountsPictures: [
+                CircleAvatar(
+                  backgroundColor: Color.fromARGB(255, 106, 16, 48),
+                  backgroundImage: AssetImage(
+                      "assets/images/userlogo.png"),
+                ),
+              ],
             ),
             ListTile(
+              leading: Icon(Icons.home, color: Color.fromARGB(255, 106, 16, 48),),
+              title: Text("Inicio"),
               onTap: () {
                 Navigator.pop(context);
               },
-              leading: const Icon(Icons.account_circle_sharp, color: Color.fromARGB(255, 106, 16, 48),),
-              title: const Text('Menu1'),
             ),
             ListTile(
+              leading: Icon(Icons.account_box, color: Color.fromARGB(255, 106, 16, 48)),
+              title: Text("Cadastros"),
               onTap: () {
                 Navigator.pop(context);
               },
-              leading: const Icon(Icons.account_balance_outlined, color: Color.fromARGB(255, 106, 16, 48),),
-              title: const Text('Menu2'),
             ),
             ListTile(
+              leading: Icon(Icons.grid_3x3_outlined, color: Color.fromARGB(255, 106, 16, 48)),
+              title: Text("Produtos"),
               onTap: () {
                 Navigator.pop(context);
               },
-              leading: const Icon(Icons.add_chart_sharp, color: Color.fromARGB(255, 106, 16, 48),),
-              title: const Text('Menu3'),
             ),
             ListTile(
+              leading: Icon(Icons.monetization_on, color: Color.fromARGB(255, 106, 16, 48)),
+              title: Text("Financeiro"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.logout, color: Color.fromARGB(255, 106, 16, 48)),
+              title: Text("Sair"),
               onTap: () {
+                Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const Sincronizar()
-                  ),
+                      builder: (BuildContext context) => AnimatedLogin()),
                 );
               },
-              leading: const Icon(Icons.account_tree_outlined, color: Color.fromARGB(255, 106, 16, 48),),
-              title: const Text('Menu4'),
-            ),
-            ListTile(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              leading: const Icon(Icons.add_a_photo_rounded, color: Color.fromARGB(255, 106, 16, 48),),
-              title: const Text('Menu5'),
-            ),
-            ListTile(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              leading: const Icon(Icons.message, color: Color.fromARGB(255, 106, 16, 48),),
-              title: const Text('Menu6'),
-            ),
+            )
           ],
         ),
       ),

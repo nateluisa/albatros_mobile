@@ -188,7 +188,7 @@ class _AnimatedLoginState extends State<AnimatedLogin> {
     final LoginTheme loginTheme = LoginTheme(
       desktopTheme: widget.loginDesktopTheme,
       mobileTheme: widget.loginMobileTheme,
-    )..backgroundColor ??= Color.fromARGB(255, 106, 16, 47);
+    )..backgroundColor ??= Color.fromARGB(255, 76, 36, 47);
     final LoginTexts loginTexts = widget.loginTexts ?? LoginTexts()
       ..language = widget.selectedLanguage;
     return MultiProvider(

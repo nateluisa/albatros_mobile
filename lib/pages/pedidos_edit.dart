@@ -7,10 +7,14 @@ class PedidosEditScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MyDrawer(
+     accountEmail: Text('Unidade de negócio - Move Tecnologia', style: TextStyle(
+        fontSize: 16
+      ),
+     ),accountName: Text('Usuário - Alexandre'),
       child: Padding(
         padding: EdgeInsets.only(top: 27, left: 28, right: 8, bottom: 0),
         child: Text(
-          'Teste de titulo de drawer',
+          '',
           style: TextStyle(fontSize: 26),
         ),
       ),

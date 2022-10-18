@@ -157,7 +157,7 @@ class LoginTexts extends ChangeNotifier {
 
   static const String _defaultWelcome = 'Bem vindo';
   static const String _defaultWelcomeDescription =
-      '';
+      'Entre em contato com seus dados e solicite um novo usuário';
   static const String _defaultSignUp = 'Solicitar';
   static const String _defaultSignUpFormTitle = 'Solicite a criação de um novo';
   static const String _defaultSignUpUseEmail =
@@ -165,7 +165,7 @@ class LoginTexts extends ChangeNotifier {
   static const String _defaultnotHaveAnAccount = "Não possui usuário?";
   static const String _defaultWelcomeBack = 'Bem vindo(a)!';
   static const String _defaultWelcomeBackDescription =
-      "";
+      "Olá, seja bem vindo(a)!";
   static const String _defaultLogin = 'Login';
   static const String _defaultLoginFormTitle = 'Login';
   static const String _defaultLoginUseEmail = 'ou use sua conta de email';

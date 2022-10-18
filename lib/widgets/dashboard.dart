@@ -39,7 +39,7 @@ class MyDashboard extends StatelessWidget {
                     ),
                     PopupMenuItem<String>(
                       onTap: () {
-                       // Navigator.pop(context);
+                        // Navigator.pop(context);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -59,13 +59,12 @@ class MyDashboard extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (contextNew) => LoginPage(loginContext: context,),
+                builder: (contextNew) => LoginPage(
+                  loginContext: context,
+                ),
               ),
             );
           },
-          child: const Icon(
-            Icons.arrow_back_outlined, // add custom icons also
-          ),
         ),
         backgroundColor: const Color.fromARGB(255, 106, 16, 48),
       ),
@@ -99,8 +98,7 @@ class MyDashboard extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Pedidos()
-                      ),
+                          builder: (BuildContext context) => Pedidos()),
                     );
                   },
                   child: Card(
@@ -159,8 +157,7 @@ class MyDashboard extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (BuildContext context) => Produtos()
-                      ),
+                          builder: (BuildContext context) => Produtos()),
                     );
                   },
                   child: Card(
@@ -208,8 +205,7 @@ class MyDashboard extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => const Clientes()
-                      ),
+                          builder: (BuildContext context) => const Clientes()),
                     );
                   },
                   child: Card(
@@ -302,12 +298,12 @@ class MyDashboard extends StatelessWidget {
               child: SizedBox(
                 height: 120,
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => const Sincronizar()
-                      ),
+                          builder: (BuildContext context) =>
+                              const Sincronizar()),
                     );
                   },
                   child: Card(

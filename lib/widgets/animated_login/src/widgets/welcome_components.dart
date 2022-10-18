@@ -58,7 +58,7 @@ class _Logo extends StatelessWidget {
     return Container(
       constraints: BoxConstraints.tight(loginTheme.logoSize ??
           Size.fromHeight(
-              dynamicSize.responsiveSize * (loginTheme.isLandscape ? 150 : 80))),
+              dynamicSize.responsiveSize * (loginTheme.isLandscape ? 190 : 100))),
       padding: loginTheme.logoPadding ??
           EdgeInsets.symmetric(
               vertical:

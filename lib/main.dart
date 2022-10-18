@@ -2,6 +2,7 @@ import 'package:albatros_mobile/pages/pedidos.dart';
 import 'package:albatros_mobile/widgets/animated_login/animated_login.dart';
 import 'package:albatros_mobile/widgets/animated_login/src/widgets/dialogs/dialog_builder.dart';
 import 'package:albatros_mobile/widgets/dashboard.dart';
+import 'package:albatros_mobile/widgets/dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -11,7 +12,8 @@ import 'initial_pages/login.dart';
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(MaterialApp(home: MyApp(),));
+  runApp(MaterialApp
+    (home: MyApp(),));
   FlutterNativeSplash.remove();
 }
 
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
       ),
       home: AnimatedLogin(
         onLogin: LoginFunctions(context).onLogin,
-        logo: Image.asset('assets/images/logo.png'),
+        logo: Image.asset('assets/images/initiallogo.png'),
       ),
       routes: routes,
     );
@@ -61,7 +63,7 @@ class LoginFunctions {
       ),
     );
     //Navigator.of(context).pushNamed('/home-page');
-    DialogBuilder(context).showResultDialog('Login realizado');
+
     return null;
   }
 
