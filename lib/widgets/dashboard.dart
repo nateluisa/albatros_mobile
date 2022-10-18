@@ -75,7 +75,7 @@ class MyDashboard extends StatelessWidget {
           end: Alignment.bottomLeft,
           colors: [
             Colors.white,
-            Color.fromARGB(255, 106, 16, 48),
+            Color.fromARGB(255, 76, 36, 48),
           ],
         )),
         child: GridView.count(

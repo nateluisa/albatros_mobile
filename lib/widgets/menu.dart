@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../initial_pages/login.dart';
+import '../main.dart';
+import 'animated_login/animated_login.dart';
 import 'dashboard1.dart';
 
 void main() {
@@ -47,15 +48,15 @@ class _MenuState extends State<Menu> {
                     ),
                     PopupMenuItem<String>(
                       onTap: () {
-                        Navigator.pushReplacement(
-                            context, MaterialPageRoute(builder: (BuildContext context) => LoginPage(loginContext: context)));
-                        // Navigator.pop(context);
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (newContext) =>
-                        //           LoginPage(loginContext: context)),
-                        // );
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) => AnimatedLogin(
+                                logo: Image.asset('assets/images/initiallogo.png'),
+                                onLogin: LoginFunctions(context).onLogin,
+                              )),
+                        );
                       },
                       value: '3',
                       child: const Text('Sair'),

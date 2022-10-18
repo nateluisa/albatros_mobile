@@ -1,7 +1,7 @@
 import 'package:albatros_mobile/widgets/animated_login/animated_login.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/sincronizar.dart';
+import '../main.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -19,7 +19,7 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 106, 16, 48),
+        backgroundColor: const Color.fromARGB(255, 106, 16, 48),
       ),
       drawer: Drawer(
         child: ListView(
@@ -27,14 +27,14 @@ class MyDrawer extends StatelessWidget {
             UserAccountsDrawerHeader(
               accountName: accountName,
               accountEmail: accountEmail,
-              currentAccountPicture: CircleAvatar(
+              currentAccountPicture: const CircleAvatar(
                 backgroundImage: AssetImage("assets/images/logoAlbatrosFill.png"),
               ),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 106, 16, 48),
 
               ),
-              otherAccountsPictures: [
+              otherAccountsPictures: const [
                 CircleAvatar(
                   backgroundColor: Color.fromARGB(255, 106, 16, 48),
                   backgroundImage: AssetImage(
@@ -43,40 +43,43 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             ListTile(
-              leading: Icon(Icons.home, color: Color.fromARGB(255, 106, 16, 48),),
-              title: Text("Inicio"),
+              leading: const Icon(Icons.home, color: Color.fromARGB(255, 106, 16, 48),),
+              title: const Text("Inicio"),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.account_box, color: Color.fromARGB(255, 106, 16, 48)),
-              title: Text("Cadastros"),
+              leading: const Icon(Icons.account_box, color: Color.fromARGB(255, 106, 16, 48)),
+              title: const Text("Cadastros"),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.grid_3x3_outlined, color: Color.fromARGB(255, 106, 16, 48)),
-              title: Text("Produtos"),
+              leading: const Icon(Icons.grid_3x3_outlined, color: Color.fromARGB(255, 106, 16, 48)),
+              title: const Text("Produtos"),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.monetization_on, color: Color.fromARGB(255, 106, 16, 48)),
-              title: Text("Financeiro"),
+              leading: const Icon(Icons.monetization_on, color: Color.fromARGB(255, 106, 16, 48)),
+              title: const Text("Financeiro"),
               onTap: () {},
             ),
             ListTile(
-              leading: Icon(Icons.logout, color: Color.fromARGB(255, 106, 16, 48)),
-              title: Text("Sair"),
+              leading: const Icon(Icons.logout, color: Color.fromARGB(255, 106, 16, 48)),
+              title: const Text("Sair"),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => AnimatedLogin()),
+                      builder: (BuildContext context) => AnimatedLogin(
+                        logo: Image.asset('assets/images/initiallogo.png'),
+                        onLogin: LoginFunctions(context).onLogin,
+                      )),
                 );
               },
             )
