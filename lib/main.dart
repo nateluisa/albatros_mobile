@@ -2,7 +2,6 @@ import 'package:albatros_mobile/pages/pedidos.dart';
 import 'package:albatros_mobile/widgets/animated_login/animated_login.dart';
 import 'package:albatros_mobile/widgets/animated_login/src/widgets/dialogs/dialog_builder.dart';
 import 'package:albatros_mobile/widgets/dashboard.dart';
-import 'package:albatros_mobile/widgets/dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -12,8 +11,9 @@ import 'initial_pages/login.dart';
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(MaterialApp
-    (home: MyApp(),));
+  runApp(MaterialApp(
+    home: MyApp(),
+  ));
   FlutterNativeSplash.remove();
 }
 
@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
 class LoginFunctions {
   /// * e.g. [onLogin], [onSignup] and [onForgotPassword]
   const LoginFunctions(this.context);
+
   final BuildContext context;
 
   /// Login action that will be performed on click to action button in login mode.
@@ -58,15 +59,12 @@ class LoginFunctions {
     await Future.delayed(const Duration(seconds: 2));
     Navigator.push(
       context,
-      MaterialPageRoute(
-          builder: (BuildContext context) =>  const MyDashboard()
-      ),
+      MaterialPageRoute(builder: (BuildContext context) => const MyDashboard()),
     );
     //Navigator.of(context).pushNamed('/home-page');
-
+    //DialogBuilder(context).showResultDialog('Login realizado');
     return null;
   }
-
 
   Future<String?> onSignup(SignUpData signupData) async {
     DialogBuilder(context).showLoadingDialog();
@@ -75,7 +73,6 @@ class LoginFunctions {
     DialogBuilder(context).showResultDialog('Solicitação enviada!');
     return null;
   }
-
 
   Future<String?> onForgotPassword(String email) async {
     DialogBuilder(context).showLoadingDialog();
@@ -91,38 +88,39 @@ class DialogBuilder {
   /// Builds various dialogs with different methods.
   /// * e.g. [showLoadingDialog], [showResultDialog]
   const DialogBuilder(this.context);
+
   final BuildContext context;
 
   /// Example loading dialog
   Future<void> showLoadingDialog() => showDialog(
-    context: context,
-    barrierDismissible: false,
-    builder: (BuildContext context) => WillPopScope(
-      onWillPop: () async => false,
-      child: const AlertDialog(
-        content:  SizedBox(
-          width: 100,
-          height: 100,
-          child: Center(
-            child: CircularProgressIndicator(
-              //color: Theme.of(context).primaryColor,
-              strokeWidth: 3,
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) => WillPopScope(
+          onWillPop: () async => false,
+          child: const AlertDialog(
+            content: SizedBox(
+              width: 100,
+              height: 100,
+              child: Center(
+                child: CircularProgressIndicator(
+                  //color: Theme.of(context).primaryColor,
+                  strokeWidth: 3,
+                ),
+              ),
             ),
           ),
         ),
-      ),
-    ),
-  );
+      );
 
   /// Example result dialog
   Future<void> showResultDialog(String text) => showDialog(
-    context: context,
-    builder: (BuildContext context) => AlertDialog(
-      content: SizedBox(
-        height: 100,
-        width: 100,
-        child: Center(child: Text(text, textAlign: TextAlign.center)),
-      ),
-    ),
-  );
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          content: SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(child: Text(text, textAlign: TextAlign.center)),
+          ),
+        ),
+      );
 }

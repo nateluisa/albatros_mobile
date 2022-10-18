@@ -1,6 +1,5 @@
 import 'package:albatros_mobile/dao/pedidos_dao.dart';
 import 'package:albatros_mobile/pages/pedidos.dart';
-import 'package:albatros_mobile/widgets/custom_dropdown.dart';
 import 'package:albatros_mobile/widgets/date_picker.dart';
 import 'package:albatros_mobile/widgets/dialog.dart';
 import 'package:albatros_mobile/widgets/dropdownmenu.dart';
@@ -38,24 +37,10 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
 
   final PedidosDao _dao = PedidosDao();
 
-  // late Bank bank;
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    final List<String> items = [
-      'Item1',
-      'Item2',
-      'Item3',
-      'Item4',
-      'Item5',
-      'Item6',
-      'Item7',
-      'Item8',
-    ];
-
-    String? selectedValue;
-
     return Form(
       key: _formKey,
       child: Scaffold(
@@ -169,25 +154,81 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
                                     (InputDecoration(hintText: 'Telefone')),
                               ),
                             ),
-                            const MyDatePicker(
-                                dateLabelText: 'Data do pedido',
-                                readOnly: false),
-                            Container(
-                              padding: EdgeInsets.all(8.0),
-                              alignment: AlignmentDirectional.bottomStart,
-                              child: MyCustomDrop(
-                                dropdownItems: items,
-                                onChanged: (value) {
-                                  setState(() {
-                                    selectedValue = value as String;
-                                  });
-                                },
-                                hint: Text('Item1'),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                alignment: AlignmentDirectional.bottomStart,
+                                child: const MyDatePicker(
+                                    dateLabelText: 'Data do pedido',
+                                    readOnly: false),
                               ),
                             ),
-                            Container
-                              (alignment: AlignmentDirectional.topStart,
-                                child: const MyDropDownMenu()),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                  alignment: AlignmentDirectional.bottomStart,
+                                  child: const MyDropDownMenu(
+                                    dropdownItems: [
+                                      'Iteeeeeeeeeeeeeeeeem1',
+                                      'Item2',
+                                      'Item3',
+                                      'Item4',
+                                      'Item5',
+                                      'Item6',
+                                      'Item7',
+                                      'Item8',
+                                      'Item9',
+                                      'Item10',
+                                      'Item11',
+                                      'Item12',
+                                      'Item13'
+                                    ],
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                  alignment: AlignmentDirectional.bottomStart,
+                                  child: const MyDropDownMenu(
+                                    dropdownItems: [
+                                      'Iteeeeeeeeeeeeeeeeem1',
+                                      'Item2',
+                                      'Item3',
+                                      'Item4',
+                                      'Item5',
+                                      'Item6',
+                                      'Item7',
+                                      'Item8',
+                                      'Item9',
+                                      'Item10',
+                                      'Item11',
+                                      'Item12',
+                                      'Item13'
+                                    ],
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                  alignment: AlignmentDirectional.bottomStart,
+                                  child: const MyDropDownMenu(
+                                    dropdownItems: [
+                                      'Iteeeeeeeeeeeeeeeeem1',
+                                      'Item2',
+                                      'Item3',
+                                      'Item4',
+                                      'Item5',
+                                      'Item6',
+                                      'Item7',
+                                      'Item8',
+                                      'Item9',
+                                      'Item10',
+                                      'Item11',
+                                      'Item12',
+                                      'Item13'
+                                    ],
+                                  )),
+                            ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: ElevatedButton(
