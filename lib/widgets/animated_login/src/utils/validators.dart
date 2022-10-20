@@ -23,7 +23,7 @@ class Validators {
     if (errorMessage != null) return errorMessage;
     errorMessage = _runValidations(email);
     if (errorMessage != null) return errorMessage;
-    final bool isValid = RegExp(_emailRegex).hasMatch(email!);
+    final bool isValid = RegExp(_nameRegex).hasMatch(email!);
     if (!isValid) return 'Insira os dados corretamente';
     return null;
   }

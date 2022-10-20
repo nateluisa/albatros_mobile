@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:date_time_picker/date_time_picker.dart';
 
+
+
 class MyDatePicker extends StatefulWidget {
   const MyDatePicker({Key? key, required this.dateLabelText, required this.readOnly}) : super(key: key);
 
@@ -21,11 +23,18 @@ class _MyDatePickerState extends State<MyDatePicker> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 173,
+      height: 48,
       child: DateTimePicker(
         timeLabelText: widget.dateLabelText,
         readOnly: widget.readOnly,
         decoration:  InputDecoration(
-          label: Text(widget.dateLabelText),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+          ),
+          label: Text(widget.dateLabelText, style: TextStyle(color: Colors.black54),),
           prefixIcon: const Icon(Icons.date_range, ),
         ),
         dateMask: 'dd/MM/yyyy',

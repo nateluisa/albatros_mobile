@@ -1,11 +1,19 @@
 import 'package:albatros_mobile/dao/pedidos_dao.dart';
 import 'package:albatros_mobile/pages/pedidos.dart';
+import 'package:albatros_mobile/widgets/autocomplete_input.dart';
+import 'package:albatros_mobile/widgets/button.dart';
 import 'package:albatros_mobile/widgets/date_picker.dart';
 import 'package:albatros_mobile/widgets/dialog.dart';
 import 'package:albatros_mobile/widgets/dropdownmenu.dart';
+import 'package:albatros_mobile/widgets/expansible_card.dart';
+import 'package:albatros_mobile/widgets/input_money.dart';
+import 'package:albatros_mobile/widgets/input_percentual.dart';
+import 'package:albatros_mobile/widgets/qr_reader.dart';
 import 'package:flutter/material.dart';
 
 import '../model/pedidos.dart';
+import '../widgets/input_decimal.dart';
+import '../widgets/input_text.dart';
 
 class PedidosNewScreen extends StatefulWidget {
   final cliente;
@@ -49,7 +57,7 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
             length: 4,
             child: Scaffold(
               appBar: AppBar(
-                backgroundColor: Color.fromARGB(255, 106, 16, 48),
+                backgroundColor: const Color.fromARGB(255, 106, 16, 48),
                 title: const Text('Novo pedido'),
                 bottom: const TabBar(
                   tabs: <Widget>[
@@ -71,7 +79,7 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
               body: TabBarView(
                 children: <Widget>[
                   ListView(
-                    padding: EdgeInsets.only(bottom: 85),
+                    padding: const EdgeInsets.only(bottom: 85),
                     children: [
                       Center(
                         child: Column(
@@ -81,20 +89,24 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
                               child: Row(
                                 children: [
                                   Expanded(
-                                    child: TextFormField(
-                                      controller: _clienteController,
-                                      validator: (String? value) {
-                                        if (value != null && value.isEmpty) {
-                                          return 'Informe o nome';
-                                        }
-                                      },
-                                      decoration: InputDecoration(
-                                        hintText: 'Nome',
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 8.0),
+                                      child: MyInputText(
+                                        label: Text('Nome'),
+                                        controller: _clienteController,
+                                        validator: (String? value) {
+                                          if (value != null && value.isEmpty) {
+                                            return 'Informe o nome';
+                                          }
+                                        },
+                                        keyboardType: TextInputType.text,
                                       ),
                                     ),
                                   ),
                                   Expanded(
-                                      child: TextFormField(
+                                      child: MyInputText(
+                                    label: Text('Numero'),
                                     keyboardType: TextInputType.number,
                                     controller: _numeroController,
                                     validator: (value) {
@@ -102,8 +114,6 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
                                         return 'Informe o numero';
                                       }
                                     },
-                                    decoration:
-                                        (InputDecoration(hintText: 'Numero')),
                                   ))
                                 ],
                               ),
@@ -116,75 +126,59 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: TextFormField(
+                              child: MyInputText(
+                                label: Text('Endereço'),
                                 controller: _enderecoController,
                                 validator: (value) {
                                   if (value != null && value.isEmpty) {
                                     return 'Informe o endereço';
                                   }
                                 },
-                                decoration:
-                                    (InputDecoration(hintText: 'Endereço')),
+                                keyboardType: TextInputType.text,
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: TextFormField(
+                              child: MyInputText(
+                                label: Text('Bairro'),
                                 controller: _bairroController,
-                                validator: (value) {
-                                  if (value != null && value.isEmpty) {
-                                    return 'Informe o bairro';
-                                  }
-                                },
-                                decoration:
-                                    (InputDecoration(hintText: 'Bairro')),
+                                keyboardType: TextInputType.text,
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: TextFormField(
+                              child: MyInputText(
+                                icon: Icon(Icons.phone, color: Colors.black),
+                                label: Text('Telefone'),
                                 keyboardType: TextInputType.phone,
                                 controller: _telefoneController,
-                                validator: (value) {
-                                  if (value != null && value.isEmpty) {
-                                    return 'Informe o telefone';
-                                  }
-                                },
-                                decoration:
-                                    (InputDecoration(hintText: 'Telefone')),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                alignment: AlignmentDirectional.bottomStart,
-                                child: const MyDatePicker(
-                                    dateLabelText: 'Data do pedido',
-                                    readOnly: false),
-                              ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    alignment: AlignmentDirectional.bottomStart,
+                                    child: MyDatePicker(
+                                      dateLabelText: 'Data inicial',
+                                      readOnly: false,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    alignment: AlignmentDirectional.bottomStart,
+                                    child: MyDatePicker(
+                                      dateLabelText: 'Data final',
+                                      readOnly: false,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                  alignment: AlignmentDirectional.bottomStart,
-                                  child: const MyDropDownMenu(
-                                    dropdownItems: [
-                                      'Iteeeeeeeeeeeeeeeeem1',
-                                      'Item2',
-                                      'Item3',
-                                      'Item4',
-                                      'Item5',
-                                      'Item6',
-                                      'Item7',
-                                      'Item8',
-                                      'Item9',
-                                      'Item10',
-                                      'Item11',
-                                      'Item12',
-                                      'Item13'
-                                    ],
-                                  )),
-                            ),
+
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
@@ -229,6 +223,63 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
                                     ],
                                   )),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                  alignment: AlignmentDirectional.bottomStart,
+                                  child: const MyDropDownMenu(
+                                    dropdownItems: [
+                                      'Iteeeeeeeeeeeeeeeeem1',
+                                      'Item2',
+                                      'Item3',
+                                      'Item4',
+                                      'Item5',
+                                      'Item6',
+                                      'Item7',
+                                      'Item8',
+                                      'Item9',
+                                      'Item10',
+                                      'Item11',
+                                      'Item12',
+                                      'Item13'
+                                    ],
+                                  )),
+                            ),
+                            const MyInputMoney(
+                              label: Text('Teste de input money',
+                                  style: TextStyle(color: Colors.black)),
+                            ),
+                            const MyInputPercentual(
+                              label: Text('Teste de input percentual',
+                                  style: TextStyle(color: Colors.black)),
+                            ),
+                            const MyInputDecimal(
+                                label: Text(
+                              'Teste de input decimal',
+                              style: TextStyle(color: Colors.black),
+                            )),
+                            MyButton(
+                              icon: Icon(Icons.add),
+                              onPressed: () {
+                                print('object');
+                              },
+                              label: Text('Click'),
+                            ),
+                            //MyAutocomplete(),
+                            InputAutocomplete(
+                              suggestons: [
+                                "Teste1",
+                                "Teste2",
+                                "Teste3",
+                                "Teste4",
+                                "Teste5",
+                                "Teste6",
+                                "Teste7",
+                                "Teste8",
+                              ],
+                              label: Text('Buscar'),
+                            ),
+
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: ElevatedButton(
@@ -243,9 +294,9 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
                                               onCancel: () {
                                                 Navigator.pop(context);
                                               },
-                                              content: Text(
+                                              content: const Text(
                                                   'Teste de subtitulo ou conteudo de dialog'),
-                                              title: Text(
+                                              title: const Text(
                                                   'Teste de title de dialogo'),
                                               icon: const Icon(
                                                 Icons.warning_rounded,
@@ -255,7 +306,24 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
                                         });
                                   },
                                   child: const Text('Dialog')),
-                            )
+                            ),
+                            MyButton(label: Text('QR code'), icon: Icon(Icons.qr_code), onPressed: () { Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                  MyQRReader()),
+                            ); }, ),
+                            MyExpansibleCard(
+                              title: Text('Teste de expansible card'),
+                              subtitle: Text('Subtitulo'),
+                              child: Text('Child do widget'),
+                              leading: CircleAvatar(
+                                  backgroundColor: Colors.transparent,
+                                  child: Image.asset(
+                                    'assets/images/logoAlbatrosMini.png',
+                                  )),
+                            ),
+
                           ],
                         ),
                       )
@@ -360,8 +428,8 @@ class _PedidosNewScreenState extends State<PedidosNewScreen> {
                     content: Text('Criado com sucesso!'),
                   ));
                 },
-                child: Icon(Icons.save),
-                backgroundColor: Color.fromARGB(255, 106, 16, 48),
+                child: const Icon(Icons.save),
+                backgroundColor: const Color.fromARGB(255, 106, 16, 48),
               ),
             )),
       ),

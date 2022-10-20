@@ -3,11 +3,12 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 
 
 class MyExpansibleCard extends StatefulWidget {
-  MyExpansibleCard({Key? key, required this.title, required this.subtitle, required this.child, }) : super(key: key);
+  MyExpansibleCard({Key? key, required this.title, required this.subtitle, required this.child, this.leading, }) : super(key: key);
 
   final Widget title;
   final Widget subtitle;
   final Widget child;
+  final Widget? leading;
 
   @override
   _MyExpansibleCardState createState() => _MyExpansibleCardState();
@@ -32,7 +33,8 @@ class _MyExpansibleCardState extends State<MyExpansibleCard> {
         child: ExpansionTileCard(
           isThreeLine: true,
           key: cardA,
-          leading: CircleAvatar(child: Image.asset('assets/images/userlogo.png')),
+          leading: widget.leading,
+          // leading: CircleAvatar(child: )),
           title: widget.title,
           subtitle: widget.subtitle,
           children: <Widget>[
@@ -47,7 +49,7 @@ class _MyExpansibleCardState extends State<MyExpansibleCard> {
                   horizontal: 20.0,
                   vertical: 14.0,
                 ),
-                child: widget.child
+                child: widget.child // conteudo interno do card aqui
               ),
             ),
             ButtonBar(
@@ -55,6 +57,7 @@ class _MyExpansibleCardState extends State<MyExpansibleCard> {
               buttonHeight: 52.0,
               buttonMinWidth: 90.0,
               children: <Widget>[
+
                 TextButton(
                   style: flatButtonStyle,
                   onPressed: () {

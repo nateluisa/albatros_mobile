@@ -1,3 +1,5 @@
+import 'package:albatros_mobile/widgets/autocomplete.dart';
+import 'package:albatros_mobile/widgets/autocomplete_input.dart';
 import 'package:flutter/material.dart';
 
 class Produtos extends StatelessWidget {
@@ -5,21 +7,6 @@ class Produtos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title:const Center
-          (child: Text('PRODUTOS')),
-        backgroundColor: const Color.fromARGB(255, 106, 16, 48),
-      ),
-      body: Column(
-        children: const [
-          SizedBox(
-            height: 200,
-            width: 200,
-            child: Text('Teste de pagina'),
-          )
-        ],
-      ),
-    );
+    return InputAutocomplete(label: Text('Teste de autocomplete'), suggestons: ['teste']);
   }
 }

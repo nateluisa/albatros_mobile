@@ -1,4 +1,5 @@
-import 'package:albatros_mobile/widgets/drawer.dart';
+
+import 'package:albatros_mobile/widgets/qr_reader.dart';
 import 'package:flutter/material.dart';
 
 class PedidosEditScreen extends StatelessWidget {
@@ -6,18 +7,6 @@ class PedidosEditScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MyDrawer(
-     accountEmail: Text('Unidade de negócio - Move Tecnologia', style: TextStyle(
-        fontSize: 16
-      ),
-     ),accountName: Text('Usuário - Alexandre'),
-      child: Padding(
-        padding: EdgeInsets.only(top: 27, left: 28, right: 8, bottom: 0),
-        child: Text(
-          '',
-          style: TextStyle(fontSize: 26),
-        ),
-      ),
-    );
+    return MyQRReader();
   }
 }

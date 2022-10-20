@@ -1,6 +1,4 @@
-import 'package:albatros_mobile/pages/pedidos.dart';
 import 'package:albatros_mobile/widgets/animated_login/animated_login.dart';
-import 'package:albatros_mobile/widgets/animated_login/src/widgets/dialogs/dialog_builder.dart';
 import 'package:albatros_mobile/widgets/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -8,12 +6,15 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'initial_pages/home.dart';
 import 'initial_pages/login.dart';
 
+
+
+
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(MaterialApp(
-    home: MyApp(),
-  ));
+  runApp(
+     MyApp(),
+  );
   FlutterNativeSplash.remove();
 }
 
@@ -27,21 +28,26 @@ class MyApp extends StatelessWidget {
         ),
   };
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: const [GlobalMaterialLocalizations.delegate],
-      supportedLocales: const [Locale('en', ''), Locale('pt', '')],
+      localizationsDelegates: const [GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate,],
+      supportedLocales: const [Locale('en'), Locale('pt')],
+      locale: const Locale('pt'),
       title: 'Albatros vendas',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         //primaryColor: Colors.deepPurple,
         fontFamily: 'Nunito',
       ),
-      home: AnimatedLogin(
-        onLogin: LoginFunctions(context).onLogin,
-        logo: Image.asset('assets/images/initiallogo.png'),
-      ),
+      home:LoginPage(loginContext: context,),
+      // AnimatedLogin(
+      //   validateName: true,
+      //   signUpMode: SignUpModes.name,
+      //   onLogin: LoginFunctions(context).onLogin,
+      //   logo: Image.asset('assets/images/initiallogo.png'),
+      // ),
       routes: routes,
     );
   }
@@ -53,7 +59,6 @@ class LoginFunctions {
 
   final BuildContext context;
 
-  /// Login action that will be performed on click to action button in login mode.
   Future<String?> onLogin(LoginData loginData) async {
     // DialogBuilder(context).showLoadingDialog();
     await Future.delayed(const Duration(seconds: 2));
@@ -85,13 +90,11 @@ class LoginFunctions {
 }
 
 class DialogBuilder {
-  /// Builds various dialogs with different methods.
   /// * e.g. [showLoadingDialog], [showResultDialog]
   const DialogBuilder(this.context);
 
   final BuildContext context;
 
-  /// Example loading dialog
   Future<void> showLoadingDialog() => showDialog(
         context: context,
         barrierDismissible: false,
